@@ -1,7 +1,8 @@
-**Projekat OSINet se od 19. aprila 2025. smatra arhiviranim i objavljenim za javnost.**
+**The OSINet project is considered archived and released to the public as of April 19, 2025.**
 
 ![logo](https://raw.githubusercontent.com/vuk-developer/OSINet/refs/heads/main/logo.svg)
 # OSINet
 
-**Objedinjena Serverska Infrastruktura** (OSINet) je MS-RSL licencirani softver namenjen administraciji biblioteka. Omogućava efikasno upravljanje članovima, knjigama i javnim podacima kroz više specijalizovanih podsistema.
-
+**Unified Server Infrastructure** (OSINet) is MS-RSL licensed software intended for library administration. It enables efficient management of members, books and public data through multiple specialized subsystems.
+**Addendum**
+SQL Scripts will soon be published.
