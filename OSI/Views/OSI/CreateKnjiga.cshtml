@@ -1,0 +1,76 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model OSI.Models.Knjige
+@{
+  ViewData["Title"] = "Nova knjiga";
+    if (ViewBag.Uredjaj == "Desktop")
+    {
+        Layout = "_Layout_Proces";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+<header>
+    <nav style="background-image: none;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: right;"class="navbar-collapse collapse d-sm-inline-flex">
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="location.href = '/'"><i class="bi bi-back text-dark"></i></label>
+            </div>
+            </div>
+    </nav>
+</header>
+<h1>Nova knjiga</h1>
+
+<h4>OBJEDINJENA SERVERSKA INFRASTRUKTURA</h4>
+<hr />
+<div class="row">
+    <div>
+        <form action="/napravi/knjiga" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label">ID</label>
+                <input name="Id" for="Id" class="form-control" readonly />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Isbn" class="control-label">ISBN</label>
+                <input name="Isbn" for="Isbn" class="form-control" />
+                <span asp-validation-for="Isbn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImeKnjige" class="control-label">Naslov</label>
+                <input name="ImeKnjige" for="ImeKnjige" class="form-control" />
+                <span asp-validation-for="ImeKnjige" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Autor" class="control-label">Autor</label>
+                <input name="Autor" for="Autor" class="form-control" />
+                <span asp-validation-for="Autor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label">Status</label>
+                <select name="Status" for="Status" class="form-control" >
+                  <option value="Na stanju">Na stanju</option>
+                  <option value="Nije na stanju">Nije na stanju</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="Signatura" class="control-label">Signatura</label>
+                <input name="Signatura" for="Signatura" class="form-control" />
+                <span asp-validation-for="Signatura" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Napravi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

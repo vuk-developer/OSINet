@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head id="mainHead">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OSI</title>
+    <meta property="og:title" content="Objedinjena Serverska Infrastruktura" />
+    <meta property="og:type" content="info.sys" />
+    <meta property="og:description" content="Vuk Ilic &copy; 2023." />
+    <meta property="og:url" content="ebiblioteka.bsite.net"/>
+    <meta property="og:image" content="/resources/thumbnail.jpeg" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/OSI.styles.css" asp-append-version="true" />
+</head>
+<body style="font-family: MainFont;">
+     <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+            <div id="MainHeaderNav" class="container-fluid">
+                <a class="navbar-brand" style="text-align: left;" href="/otvoreni-podaci">OpenOSI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+             </div>
+        </nav>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            Vuk Ilić &copy; 2023 - OSI - Objedinjena Serverska Infrastruktura - Portal Otvorenih Podataka
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

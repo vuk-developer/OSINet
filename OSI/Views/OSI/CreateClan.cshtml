@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model OSI.Models.Clanovi
+@{
+  ViewData["Title"] = "Novi član";
+    if (ViewBag.Uredjaj == "Desktop")
+    {
+        Layout = "_Layout_Proces";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+<header>
+    <nav style="background-image: none;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: right;"class="navbar-collapse collapse d-sm-inline-flex">
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="location.href = '/'"><i class="bi bi-back text-dark"></i></label>
+            </div>
+            </div>
+    </nav>
+</header>
+<h1>Novi član</h1>
+
+<h4>OBJEDINJENA SERVERSKA INFRASTRUKTURA</h4>
+<hr />
+<div class="row">
+    <div>
+        <form action="/napravi/clan" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label">ID</label>
+                <input name="Id" for="Id" value="@Guid.NewGuid().ToString()" class="form-control" readonly />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ime" class="control-label">Ime</label>
+                <input name="Ime" for="Ime" class="form-control" />
+                <span asp-validation-for="Ime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prezime" class="control-label">Prezime</label>
+                <input name="Prezime" for="Prezime" class="form-control" />
+                <span asp-validation-for="Prezime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mesto" class="control-label">Mesto</label>
+                <input name="Mesto" for="Mesto" class="form-control" />
+                <span asp-validation-for="Mesto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DatumRodjenja" class="control-label">Datum Rođenja</label>
+                <input name="DatumRodjenja" for="DatumRodjenja" class="form-control hasDatepicker" id="Date"/>
+                <span asp-validation-for="DatumRodjenja" class="text-danger"></span>
+            </div>
+            <div type="hidden" class="form-group">
+                <input name="Evidencija" type="hidden" for="Evidencija" class="form-control" />
+                <span asp-validation-for="Evidencija" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Napravi" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "OSI";
+}
+
+<div class="text-center" style="border-radius:5px;" id="mainHeaderOSI">
+    <h1 class="display-4" style="font-family: OSIFont;">OSI</h1>
+    <p>Objedinjena Serverska Infrastruktura</p>
+    <hr />
+</div>
+<div class="main" style="align-items: center;">
+    <div class="card d-inline-flex" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Registar Knjiga</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Objedinjeni spisak knjiga</h6>
+        <p class="card-text">Ovde možete pregledati kompletan asortiman knjiga naše biblioteke.</p>
+        <label onclick="location.href = '/osi/registar-knjiga'" class="btn btn-main">Otvori</label>
+        </div>
+    </div>
+    <div class="card d-inline-flex" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Registar Članova</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Objedinjeni spisak članova biblioteke.</h6>
+        <label onclick="location.href = '/osi/registar-clanova'" class="btn btn-main">Otvori</label>
+        </div>
+    </div>
+        <div class="card d-inline-flex" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Unos Nove Knjige</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Forma za dodavanje nove knjige.</h6>
+        <p class="card-text">Ovde se dodaju knjige</p>
+        <label onclick="location.href = '/osi/knjiga'" class="btn btn-main">Otvori</label>
+        </div>
+    </div>
+        <div class="card d-inline-flex" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Upis Novog Člana</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Forma za upis novog člana biblioteke.</h6>
+        <p class="card-text">Upisivanje članova je besplatno</p>
+        <label onclick="location.href = '/osi/clan'" class="btn btn-main">Otvori</label>
+        </div>
+    </div>
+        <div class="card d-inline-flex" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Članske karte</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Standardni ispis svih članskih karata.</h6>
+        <p class="card-text">Namenjeno za štampanje.</p>
+        <label onclick="location.href = '/osi/clanske-karte'" class="btn btn-main">Otvori</label>
+        </div>
+    </div>
+        <div class="card d-inline-flex" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">Forma za identifikaciju knjiga (KLF)</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Standardni ispis svih (KLF) formi.</h6>
+        <p class="card-text">Namenjeno za štampanje.</p>
+        <label onclick="location.href = '/osi/knjige-lokator-form'" class="btn btn-main">Otvori</label>
+        </div>
+    </div>
+    
+
+</div>

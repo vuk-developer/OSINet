@@ -1,0 +1,104 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Clanovi clan = ViewBag.ClanTransfer;
+    Knjige[] knjige1 = { };
+    if (ViewBag.KnjigeTransfer != null)
+    {
+        Knjige[] knjige = ViewBag.KnjigeTransfer.ToArray();
+        knjige1 = knjige;
+    }
+    if (ViewBag.Uredjaj == "Desktop")
+    {
+        Layout = "_Layout_Proces";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+
+}
+<header>
+    <nav style="background-image: none;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: right;"class="navbar-collapse collapse d-sm-inline-flex">
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="location.href = '/'"><i class="bi bi-back text-dark"></i></label>
+                <a href="/osi/obrisi-clana/@clan.Id" class="btn btn-outline-light"><i class="bi bi-file-earmark-x text-danger"></i></a>
+            </div>
+            </div>
+    </nav>
+</header>
+
+<h1>@clan.Ime @clan.Prezime</h1>
+
+<h4>Objedinjena Serverska Infrastruktura</h4>
+<hr />
+<div class="d-inline-flex">
+    <form action="/uredic" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input name="Id" type="hidden" value="@clan.Id" for="Id" readonly />
+        <div class="form-group">
+            <label for="Ime" class="control-label">Ime</label>
+            <input name="Ime" for="Ime" value="@clan.Ime" class="form-control" />
+            <span asp-validation-for="@clan.Ime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Prezime" class="control-label">Prezime</label>
+            <input name="Prezime" for="Prezime" value="@clan.Prezime" class="form-control" />
+            <span asp-validation-for="@clan.Prezime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Mesto" class="control-label">Mesto</label>
+            <input name="Mesto" for="Mesto" value="@clan.Mesto" class="form-control" />
+            <span asp-validation-for="@clan.Mesto" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="DatumRodjenja" class="control-label">Datum rođenja</label>
+            <input name="DatumRodjenja" for="DatumRodjenja" value="@clan.DatumRodjenja" class="form-control" />
+            <span asp-validation-for="@clan.DatumRodjenja" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Evidencija" class="control-label">Evidencija</label>
+            <textarea name="Evidencija" for="Evidencija" class="form-control" value="@clan.Evidencija" rows="6">@clan.Evidencija</textarea>
+            <span asp-validation-for="@clan.Evidencija" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Sačuvaj" class="btn btn-primary" />
+        </div>
+</form>
+</div>
+<div class="d-inline-flex" style="margin-left: 200px;">
+
+    @if (ViewBag.KnjigeTransfer != null)
+    {
+        <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Naslov</th>
+            <th scope="col">Autor</th>
+        </tr>
+        </thead>
+        <tbody>
+         @foreach (Knjige knjiga in knjige1)
+         {
+            <tr>
+              <th scope="row">@knjiga.Id</th>
+              <td>@knjiga.Isbn</td>
+              <td>@knjiga.ImeKnjige</td>
+              <td>@knjiga.Autor</td>
+            </tr>
+         }
+        </tbody>
+        </table>
+    }
+</div>
+
+

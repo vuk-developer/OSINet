@@ -1,0 +1,80 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Knjige[] knjigeView = ViewBag.Knjige;
+    ViewData["Title"] = "Registar Knjiga";
+    int i = 0;
+    if (ViewBag.Uredjaj == "Desktop")
+    {
+        Layout = "_Layout_Proces";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+<header>
+    <nav style="background-image: none;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: right;"class="navbar-collapse collapse d-sm-inline-flex">
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="location.href = '/'"><i class="bi bi-back text-dark"></i></label>
+                <div class="vr"></div>
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="VukintoshPrint('printRegistar', '<h1>Tabelarni prikaz knjiga u biblioteci</h1><h4>OSI</h4><hr />')"><i class="bi bi-printer text-dark"></i></label>
+            </div>
+            </div>
+    </nav>
+</header>
+<h1>Registar knjiga</h1>
+
+<h4>OBJEDINJENA SERVERSKA INFRASTRUKTURA</h4>
+<!--<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-main"">
+     Nazad
+  </label>
+  <label class="btn btn-main" >
+     Odštampaj
+  </label>
+</div>-->
+<hr />
+<div id="printRegistar">
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Redni broj</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Signatura</th>
+      <th scope="col">Naslov</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Datum Unosa</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (Knjige knjiga in knjigeView)
+    {
+          i++;
+          <tr style="cursor: pointer;" onclick="location.href = '/uredi-knjigu/@knjiga.Id'">
+          <td scope="row">@i</td>
+          <td>@knjiga.Isbn</td>
+          <td>@knjiga.Signatura</td>
+          <td>@knjiga.ImeKnjige</td>
+          <td>@knjiga.Autor</td>
+          <td>@knjiga.DatumUnosa</td>
+          @if(knjiga.Status == "Nije na stanju")
+          {
+            <td style="text-align: center; color: white; background-color: red;"><strong>@knjiga.Status</strong></td>
+
+          }else if (knjiga.Status == "Na stanju")
+          {
+            <td style="text-align: center; color: white; background-color: forestgreen;"><strong>@knjiga.Status</strong></td>
+          }
+          </tr>
+    }
+  </tbody>
+</table>
+</div>

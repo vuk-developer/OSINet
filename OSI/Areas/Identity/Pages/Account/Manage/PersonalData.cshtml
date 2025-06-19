@@ -1,0 +1,27 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Lični podaci";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+}
+
+<h3>@ViewData["Title"]</h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <p>Vaš nalog sadrži lične podatke koje ste sami predali na uvid prilikom upisa. Ova stranica Vam omogućava da preuzmete ili izbrišete te podatke.</p>
+        <p>
+            <strong>Brisanjem ovih podataka trajno ćete ukloniti Vaš nalog i to se ne može oporaviti.</strong>
+        </p>
+        <form id="download-data" asp-page="DownloadPersonalData" method="post">
+            <button class="btn btn-primary" type="submit">Preuzmi</button>
+        </form>
+        <p>
+            <a id="delete" asp-page="DeletePersonalData" class="btn btn-danger">Obriši</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

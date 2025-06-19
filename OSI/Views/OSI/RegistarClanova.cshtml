@@ -1,0 +1,69 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Clanovi[] clanoviView = ViewBag.Clanovi;
+    ViewData["Title"] = "Registar Članova";
+    if (ViewBag.Uredjaj == "Desktop")
+    {
+        Layout = "_Layout_Proces";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+<header>
+    <nav style="background-image: none;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: right;"class="navbar-collapse collapse d-sm-inline-flex">
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="location.href = '/'"><i class="bi bi-back text-dark"></i></label>
+                <div class="vr"></div>
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="VukintoshPrint('printSegment', '<h1>Tabelarni prikaz članova biblioteke</h1><h4>OSI</h4><hr />')"><i class="bi bi-printer text-dark"></i></label>
+            </div>
+            </div>
+    </nav>
+</header>
+<h1>Registar članova</h1>
+
+<h4>OBJEDINJENA SERVERSKA INFRASTRUKTURA</h4>
+<!--<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-main" onclick="location.href = '/'">
+        Nazad
+  </label>
+  <label class="btn btn-main" >
+     Odštampaj
+  </label>
+</div>-->
+<hr />
+<div id="printSegment">
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Ime</th>
+      <th scope="col">Prezime</th>
+      <th scope="col">Mesto</th>
+      <th scope="col">Datum rođenja</th>
+      <th scope="col">Evidencija</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (Clanovi clan in clanoviView)
+    {
+        <tr style="cursor: pointer;" onclick="location.href = '/uredi-clana/@clan.Id'">
+          <td style="font-family: VUKIntFont;" scope="row">@clan.Id</td>
+          <td>@clan.Ime</td>
+          <td>@clan.Prezime</td>
+          <td>@clan.Mesto</td>
+          <td>@clan.DatumRodjenja</td>
+          <td>@clan.Evidencija</td>
+        </tr>
+    }
+  </tbody>
+</table>
+</div>

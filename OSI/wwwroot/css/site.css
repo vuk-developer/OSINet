@@ -1,0 +1,117 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+@font-face {
+    font-family: "OSIFont";
+    src: url("../resources/font.otf");
+}
+@font-face {
+    font-family: "VUKIntFont";
+    src: url("../resources/vukintfont.otf");
+}
+@font-face {
+    font-family: "MainFont";
+    src: url("../resources/MainFont.ttf");
+}
+#mainHeaderOSI {
+    background-image: url('../resources/background.png');
+    color: white;
+    text-shadow: 2px 2px 6px black;
+    background-size:cover;
+}
+nav {
+    background-image: url('../resources/background.png');
+    color: white;
+    text-shadow: 2px 2px 6px black;
+    background-size: cover;
+
+}
+#MainHeaderNav {
+    backdrop-filter: blur(10px);
+}
+#coreId {
+    background-image: url('../resources/img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.btn-main {
+    background-color: #194872;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 5px;
+}
+.btn-danger-main {
+    background-color: firebrick;
+    border: none;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 5px;
+}
+label.btn.btn-main {
+    padding-top: 0px;
+}
+label.btn.btn-main:hover{
+    color: white;
+}
+label.button.btn-main {
+    padding-top: 0px;
+}
+
+label.button.btn-main:hover {
+    color: white;
+}
+label.button.btn-danger-main {
+    padding-top: 0px;
+}
+
+label.button.btn-danger-main:hover {
+    color: white;
+}
+.btn-main:hover, .btn-main:focus, .btn-main:active {
+    background-color: #0e294f
+}
+.main-div {
+    display: grid;
+    margin-top: 15%;
+    background-color: hsla(0,0%,100%,.8);
+    width: 100%;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+}
+
+#sajdbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}

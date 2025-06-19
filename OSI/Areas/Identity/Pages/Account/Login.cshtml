@@ -1,0 +1,56 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Prijava u sistem";
+    Layout = "_Layout_Auth";
+}
+
+    <body id="coreId" class="login">
+        <div class="login-container">
+            <form id="account" class="login-form" method="post" style="border-radius: 5px;">
+                <div class="login-logo">
+                        <img src="/resources/logo-full-demo.svg" alt="OSI">
+                </div>
+
+                <div class="form-floating">
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+                    <label asp-for="Input.Email" style="padding-left: 5px; padding-top: 12px;" class="form-label">E-adresa</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <br />
+                <div class="form-floating">
+                    <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" />
+                    <label asp-for="Input.Password" style="padding-left: 5px; padding-top: 12px;" class="form-label">Šifra</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="checkbox">
+                    <label asp-for="Input.RememberMe" class="form-label">
+                        <input class="form-check-input" asp-for="Input.RememberMe" />
+                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
+                </div>
+                
+                <button id="login-submit" type="submit" style="border-radius: 5px;" class="prevent-double-click login-btn">Prijavi se u sistem</button>
+               
+                <p class="text-center">
+                    Svaki neovlašćeni pokušaj pristupa mreži se beleži.
+                </p>
+                <p class="text-center">
+                    version 1.0.5:InAmberClad<br />
+                    FEROX BRANCH
+                </p>
+            </form>
+            <div class="login-emblem" style="border-radius: 5px;">
+                <img src="/resources/main_logo.svg" class="center" alt="vuk">
+            </div>
+            <div class="login-form">
+                <h5 class="text-center">Ukoliko ste tražili<br />OpenOSI (Portal Otvorenih Podataka),<br />kliknite na dugme ispod.</h5>
+                <button class="prevent-double-click login-btn" style="border-radius: 5px;" onclick="location.href= '/openosi'">OpenOSI</button>
+            </div>
+        </div>
+</body>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

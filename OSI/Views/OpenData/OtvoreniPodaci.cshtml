@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout_OpenData";
+    Knjige[] knjiges = ViewBag.OpenData;
+    Knjige[] knjigeSortirane = knjiges.OrderBy(e => e.ImeKnjige).ToArray();  
+    int i = 0;
+}
+<h4>(OpenOSI) Portal Otvorenih Podataka ver-0.0.1</p></h4>
+<p>(OpenOSI) Portal otvorenih podataka je deo Objedinjene Serverske Infrastrukture (OSI)</p>
+<hr />
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ISBN</th>
+      <th scope="col">Naslov</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (Knjige knjiga in knjigeSortirane)
+    {
+        i++;
+         <tr>
+            <th scope="row">@i</th>
+            <td>@knjiga.Isbn</td>
+            <td>@knjiga.ImeKnjige</td>
+            <td>@knjiga.Autor</td>
+            @if(knjiga.Status == "0")
+            {
+            <td style="text-align: center; color: white; background-color: red;"><strong>Nije na stanju</strong></td>
+
+            }else if (knjiga.Status == "1")
+            {
+            <td style="text-align: center; color: white; background-color: forestgreen;"><strong>Na stanju</strong></td>
+            }
+         </tr>
+    }
+  </tbody>
+</table>
+

@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "_Layout_OpenData";
+    Clanovi clan = ViewBag.Clan;
+    Knjige knjiga = ViewBag.Knjige;
+}
+<h4>Upit: <p class="text-bg-danger">@Guid.NewGuid().ToString()</p></h4>
+<h5>Na zahtev @ViewBag.Clan</h5>
+<hr />
+<p>Naslov: @knjiga.ImeKnjige</p>
+<p>Autor: @knjiga.Autor</p>
+<p>Datum unosa: @knjiga.DatumUnosa.ToString()</p>
+<p>ISBN: @knjiga.Isbn</p>
+<p>Status: @knjiga.Status</p>
+

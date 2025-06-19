@@ -1,0 +1,23 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+<p>
+    PostMaster je trenutno onemogućen, stoga aktivirajte nalog klikom na hyperlink
+    <a id="confirm-link" href="@Model.EmailConfirmationUrl">Potvrda naloga</a>
+</p>
+    }
+    else
+    {
+<p>
+        Proverite svoju e-poštu da biste potvrdili svoj nalog.
+</p>
+    }
+}
+

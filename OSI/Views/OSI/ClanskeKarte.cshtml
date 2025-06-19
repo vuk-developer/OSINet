@@ -1,0 +1,96 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@ViewData["Članske karte"]
+@using Barcoder;
+@using Barcoder.Pdf417;
+@using Barcoder.Renderer.Svg;
+@{
+    if (ViewBag.Uredjaj == "Desktop")
+    {
+        Layout = "_Layout_Proces";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+    var k = "ić";
+
+    Clanovi[] clanoviViewArray = ViewBag.ClanoviTransport;
+    List<Clanovi> correctedArray = clanoviViewArray.Select((e) =>
+    {
+        switch (e.Prezime)
+        {
+            case var a when e.Prezime.EndsWith("ic"):
+                string l = e.Prezime.Remove(e.Prezime.Length - 2, 2);
+                e.Prezime = l+=k;
+                return e;
+            default:
+                return e;
+        }
+
+    }).ToList();
+    /*foreach (Clanovi clan in clanoviViewArray)
+    {
+        if (clan.Prezime.EndsWith("ic"))
+        {
+            string stemp = clan.Prezime.Replace("ic","ić");
+            clan.Prezime = stemp;
+            Console.WriteLine(clan.Prezime);
+            correctedArray.Add(clan);
+        }
+    }*/
+}
+<header>
+    <nav style="background-image: none;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: right;"class="navbar-collapse collapse d-sm-inline-flex">
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="location.href = '/'"><i class="bi bi-back text-dark"></i></label>
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="VukintoshPrint('printKarte', '<h1>Ispis svih članskih karata</h1><h4>OSI</h4><hr />')"><i class="bi bi-printer text-dark"></i></label>
+            </div>
+            </div>
+    </nav>
+</header>
+<h1>Članske karte</h1>
+
+<h4>OBJEDINJENA SERVERSKA INFRASTRUKTURA</h4>
+<hr />
+<div id="printKarte">
+@foreach (Clanovi clan in correctedArray)
+{
+    var barcode = Pdf417Encoder.Encode(clan.Id, 5);
+    var renderer = new SvgRenderer();
+    var svgFinal = string.Empty;
+
+    using (var stream = new MemoryStream())
+    using (var reader = new StreamReader(stream))
+    {
+        renderer.Render(barcode, stream);
+        stream.Position = 0;
+
+        string svg = reader.ReadToEnd();
+        svgFinal = svg;
+    }
+        <div style="border: 2px solid black; margin-right:400px; text-align: center;">
+            <div style="margin-top: 20px; margin-left: 20px; margin-bottom: 20px;">
+                <h2 class="d-inline-flex" style="font-family: OSIFont; align-self: center; color: #0066cd;">OSI</h2><br />
+                <h2 class="d-inline-flex" style="font-family: VUKIntFont" >BIBLIOTEKA BLANK</h2>
+                <h3><strong style="font-family: VUKIntFont; background-color: lightgray; border-radius: 3px;">@clan.Id</strong></h3>
+                <h4 style="font-family: VUKIntFont">@clan.Prezime @clan.Ime</h4>
+                <div style="align-self: center;" style="width: 300px; height: auto;">
+                    @Html.Raw(svgFinal)
+                    <br />
+                    <h7 class="d-inline-flex" style="font-family: VUKIntFont" >BLANK</h7>
+                    <br />
+                    <h7 class="d-inline-flex" style="font-family: VUKIntFont" >BLANK</h7>
+               </div>
+            </div>
+
+        </div>
+    <br />
+}
+</div>

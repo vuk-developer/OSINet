@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<Knjige> knjigeDest = ViewBag.Knjige;
+
+    if (ViewBag.Uredjaj == "Desktop")
+    {
+        Layout = "_Layout_Proces";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+ }
+
+    <header>
+    <nav style="background-image: none;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: right;"class="navbar-collapse collapse d-sm-inline-flex">
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="location.href = '/'"><i class="bi bi-back text-dark"></i></label>
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="VukintoshPrint('klfForme', '<h1>Ispis KLF formi</h1><h4>OSI</h4><hr />')"><i class="bi bi-printer text-dark"></i></label>
+            </div>
+            </div>
+    </nav>
+</header>
+<h1>KLF Forme</h1>
+
+<h4>OBJEDINJENA SERVERSKA INFRASTRUKTURA</h4>
+<hr />
+<div id="klfForme">
+@foreach (Knjige knjiga in knjigeDest)
+{
+    <div style="border: 1px solid black; text-align: center; margin-right: 950px; font-family: VUKIntFont">
+        <br />
+        <h1 style="border: 1px solid black; margin-left: 130px; margin-right: 130px;">@knjiga.Id</h1>
+        <br />
+        <br />
+        <div style="border: 1px solid black; margin-left: 50px; margin-right: 50px;">
+        <h5>@knjiga.ImeKnjige</h5>
+        <h5>@knjiga.Isbn</h5>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <p style="font-size: 12px; border: 1px solid black; margin-left: 50px; margin-right: 50px;">BLANK</p>
+        <p style="font-size: 12px; border: 1px solid black; margin-left: 50px; margin-right: 50px;">BLANK <br /> 2023.</p>
+    </div>
+    <br />
+}
+</div>

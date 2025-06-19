@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Knjige knjiga = ViewBag.KnjigaTransfer;
+    if (ViewBag.Uredjaj == "Desktop")
+    {
+        Layout = "_Layout_Proces";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
+}
+<header>
+    <nav style="background-image: none;" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="text-align: right;"class="navbar-collapse collapse d-sm-inline-flex">
+                <label style="max-width: 100px" class="btn btn-outline-light" onclick="location.href = '/'"><i class="bi bi-back text-dark"></i></label>
+                <a href="/osi/obrisi-knjigu/@knjiga.Id" class="btn btn-outline-light"><i class="bi bi-file-earmark-x text-danger"></i></a>
+            </div>
+            </div>
+    </nav>
+</header>
+<h1>@knjiga.ImeKnjige</h1>
+
+<h4>Objedinjena Serverska Infrastruktura</h4>
+<hr />
+<div class="d-inline-flex">
+    <form action="/uredik" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input class="form-control" type="hidden" name="Id" value="@knjiga.Id" for="Id" readonly />
+        <div class="form-group">
+            <label for="Isbn" class="control-label">ISBN</label>
+            <input name="Isbn" for="Isbn" value="@knjiga.Isbn" class="form-control" />
+            <span asp-validation-for="@knjiga.Isbn" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="ImeKnjige" class="control-label">Naslov</label>
+            <input name="ImeKnjige" for="ImeKnjige" value="@knjiga.ImeKnjige" class="form-control" />
+            <span asp-validation-for="@knjiga.ImeKnjige" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Autor" class="control-label">Autor</label>
+            <input name="Autor" for="Autor" value="@knjiga.Autor" class="form-control" />
+            <span asp-validation-for="@knjiga.Autor" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Status" class="control-label">Status</label>
+            <select name="Status" for="Status" value="@knjiga.Status" class="form-control" >
+                <option value="Na stanju">Na stanju</option>
+                <option value="Nije na stanju">Nije na stanju</option>
+            </select>
+            <span asp-validation-for="@knjiga.Status" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label for="Signatura" class="control-label">Signatura</label>
+            <input name="Signatura" for="Signatura" value="@knjiga.Signatura" class="form-control" />
+            <span asp-validation-for="@knjiga.Signatura" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Sačuvaj" class="btn btn-primary" />
+        </div>
+    </form>
+</div>

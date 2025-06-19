@@ -1,0 +1,9 @@
+﻿@{
+    ViewData["Title"] = "Zabranjen pristup";
+}
+
+<header>
+    <h1 class="text-danger">@ViewData["Title"] ili ste uneli nepostojeći resurs.</h1>
+    <p class="text-danger">Razlog: @ViewBag.Razlog</p>
+    <button class="btn btn-primary" onclick="location.href = '/otvoreni-podaci'">Nazad</button>
+</header>

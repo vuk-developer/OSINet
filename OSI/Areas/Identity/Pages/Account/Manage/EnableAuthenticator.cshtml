@@ -1,0 +1,51 @@
+﻿@page
+@model EnableAuthenticatorModel
+@{
+    ViewData["Title"] = "Konfigurišite Dvofaktorsku autentifikaciju";
+    ViewData["ActivePage"] = ManageNavPages.TwoFactorAuthentication;
+}
+
+<partial name="_StatusMessage" for="StatusMessage" />
+<h3>@ViewData["Title"]</h3>
+<div>
+    <p>Da biste koristili aplikaciju za autentifikaciju, prođite kroz sledeće korake:</p>
+    <ol class="list">
+        <li>
+            <p>
+                Preuzmite aplikaciju za autentifikaciju sa dva faktora kao što je Microsoft Authenticator
+                <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> i
+                <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> ili
+                Google Authenticator za
+                <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> i
+                <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
+            </p>
+        </li>
+        <li>
+            <p>Upišite ovaj ključ<kbd>@Model.SharedKey</kbd> u vašu aplikaciju za autentifikaciju sa dva faktora. Razmaci i kapitalizacija nisu bitni.</p>
+
+        </li>
+        <li>
+            <p>
+                Kada skenirate KR kod ili unesete ključ iznad, vaša aplikacija za autentifikaciju sa dva faktora će vam obezbediti
+                jedinstveni kod. Unesite kod u polje za potvrdu ispod.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="send-code" method="post">
+                        <div class="form-floating">
+                            <input asp-for="Input.Code" class="form-control" autocomplete="off" />
+                            <label asp-for="Input.Code" class="control-label form-label">Verifikacioni kod</label>
+                            <span asp-validation-for="Input.Code" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="w-100 btn btn-lg btn-primary">Verify</button>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    </form>
+                </div>
+            </div>
+        </li>
+    </ol>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
