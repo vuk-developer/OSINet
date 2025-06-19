@@ -1,26 +1,20 @@
-MICROSOFT REFERENCE SOURCE LICENSE (MS-RSL)
+VSA License
 
-This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
+Version 1.0 — June 2025  
+Copyright (c) 2025 vuk-developer
 
-1. Definitions
-The terms "reproduce," "reproduction" and "distribution" have the same meaning here as under U.S. copyright law.
+This software is licensed under the terms of the VSA License.
 
-"You" means the licensee of the software.
+Permission is granted to any individual to view, download, and study this code solely for personal, educational, or non-commercial research purposes.
 
-"Your company" means the company you worked for when you downloaded the software.
+The following actions are strictly prohibited:
+- Commercial use of this software or any part of it;
+- Modification or creation of derivative works;
+- Redistribution of this code or any substantial portion thereof;
+- Inclusion of this code in any open-source or proprietary software.
 
-"Reference use" means use of the software within your company as a reference, in read only form, for the sole purposes of debugging your products, maintaining your products, or enhancing the interoperability of your products with the software, and specifically excludes the right to distribute the software outside of your company.
+This software is provided "as is", without warranty of any kind, express or implied. The author disclaims all liability arising from the use of this software.
 
-"Licensed patents" means any Licensor patent claims which read directly on the software as distributed by the Licensor under this license.
+By using this repository, you agree to be bound by the terms of the VSA License.
 
-2. Grant of Rights
-(A) Copyright Grant- Subject to the terms of this license, the Licensor grants you a non-transferable, non-exclusive, worldwide, royalty-free copyright license to reproduce the software for reference use.
-
-(B) Patent Grant- Subject to the terms of this license, the Licensor grants you a non-transferable, non-exclusive, worldwide, royalty-free patent license under licensed patents for reference use.
-
-3. Limitations
-(A) No Trademark License- This license does not grant you any rights to use the Licensor's name, logo, or trademarks.
-
-(B) If you begin patent litigation against the Licensor over patents that you think may apply to the software (including a cross-claim or counterclaim in a lawsuit), your license to the software ends automatically.
-
-(C) The software is licensed "as-is." You bear the risk of using it. The Licensor gives no express warranties, guarantees or conditions. You may have additional consumer rights under your local laws which this license cannot change. To the extent permitted under your local laws, the Licensor excludes the implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+To inquire about separate licensing or permissions, contact vuk-developer.
